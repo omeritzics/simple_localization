@@ -1,5 +1,5 @@
 <h1 align="center"> 
-Easy and Fast internationalization for your Flutter Apps
+Simple and Fast internationalization for your Flutter Apps
 </h1>
 
 [![Pub Version](https://img.shields.io/pub/v/simple_localization?style=flat-square&logo=dart)](https://pub.dev/packages/simple_localization)
@@ -20,8 +20,8 @@ Easy and Fast internationalization for your Flutter Apps
 
 ## Why simple_localization?
 
-- 🚀 Easy translations for many languages
-- 🔌 Load translations as JSON, CSV, Yaml, Xml using [Easy Localization Loader](https://github.com/omeritzics/simple_localization_loader)
+- 🚀 Simple translations for many languages
+- 🔌 Load translations as JSON, CSV, Yaml, Xml using [Simple Localization Loader](https://github.com/omeritzics/simple_localization_loader)
 - 💾 React and persist to locale changes
 - ⚡ Supports plural, gender, nesting, RTL locales and more
 - ↩️ Fallback locale keys redirection
@@ -75,7 +75,7 @@ flutter:
 
 You can use JSON,CSV,HTTP,XML,Yaml files, etc.
 
-See [Easy Localization Loader](https://github.com/omeritzics/simple_localization_loader) for more info.
+See [Simple Localization Loader](https://github.com/omeritzics/simple_localization_loader) for more info.
 
 ### ⚠️ Note on **iOS**
 
@@ -94,7 +94,7 @@ Example:
 
 ### ⚙️ Configuration app
 
-Add EasyLocalization widget like in example
+Add SimpleLocalization widget like in example
 
 ```dart
 import 'package:flutter/material.dart';
@@ -103,10 +103,10 @@ import 'package:simple_localization/simple_localization.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
+  await SimpleLocalization.ensureInitialized();
   
   runApp(
-    EasyLocalization(
+    SimpleLocalization(
       supportedLocales: [Locale('en', 'US'), Locale('de', 'DE')],
       path: 'assets/translations', // <-- change the path of the translation files 
       fallbackLocale: Locale('en', 'US'),
@@ -130,7 +130,7 @@ class MyApp extends StatelessWidget {
 
 [**Full example**](https://github.com/omeritzics/simple_localization/blob/master/example/lib/main.dart)
 
-### 📜 Easy localization widget properties
+### 📜 Simple localization widget properties
 
 | Properties              | Required | Default                   | Description                                                                                                                                                                   |
 | ----------------------- | -------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -138,8 +138,8 @@ class MyApp extends StatelessWidget {
 | child                   | true     |                           | Place for your main page widget.                                                                                                                                              |
 | supportedLocales        | true     |                           | List of supported locales.                                                                                                                                                    |
 | path                    | true     |                           | Path to your folder with localization files.                                                                                                                                  |
-| assetLoader             | false    | `RootBundleAssetLoader()` | Class loader for localization files. You can use custom loaders from [Easy Localization Loader](https://github.com/omeritzics/simple_localization_loader) or create your own class. |
-| extraAssetLoaders       | false    | null                      | A List of asset loaders, in case of needing assets being loaded from a different module or package. (e.g. adding a package that uses [Easy Localization Loader]).             |
+| assetLoader             | false    | `RootBundleAssetLoader()` | Class loader for localization files. You can use custom loaders from [Simple Localization Loader](https://github.com/omeritzics/simple_localization_loader) or create your own class. |
+| extraAssetLoaders       | false    | null                      | A List of asset loaders, in case of needing assets being loaded from a different module or package. (e.g. adding a package that uses [Simple Localization Loader]).             |
 | fallbackLocale          | false    |                           | Returns the locale when the locale is not in the list `supportedLocales`.                                                                                                     |
 | startLocale             | false    |                           | Overrides device locale.                                                                                                                                                      |
 | saveLocale              | false    | `true`                    | Save locale in device storage.                                                                                                                                                |
@@ -152,15 +152,15 @@ class MyApp extends StatelessWidget {
 
 ### 🔥 Initialize library
 
-Call `EasyLocalization.ensureInitialized()` in your main before runApp.
+Call `SimpleLocalization.ensureInitialized()` in your main before runApp.
 
 ```dart
 void main() async{
   // ...
-  // Needs to be called so that we can await for EasyLocalization.ensureInitialized();
+  // Needs to be called so that we can await for SimpleLocalization.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
 
-  await EasyLocalization.ensureInitialized();
+  await SimpleLocalization.ensureInitialized();
   // ...
   runApp(....)
   // ...
@@ -169,11 +169,11 @@ void main() async{
 
 ### 🔥 Change or get locale
 
-Easy localization uses extension methods [BuildContext] for access to locale.
+Simple localization uses extension methods [BuildContext] for access to locale.
 
 It's the easiest way change locale or get parameters 😉.
 
-ℹ️ No breaking changes, you can use old the static method `EasyLocalization.of(context)`
+ℹ️ No breaking changes, you can use old the static method `SimpleLocalization.of(context)`
 
 Example:
 
@@ -218,7 +218,7 @@ Example:
 ``` json
 {
    "msg":"{} are written in the {} language",
-   "msg_named":"Easy localization is written in the {lang} language",
+   "msg_named":"Simple localization is written in the {lang} language",
    "msg_mixed":"{} are written in the {lang} language",
    "gender":{
       "male":"Hi man ;) {}",
@@ -230,13 +230,13 @@ Example:
 
 ```dart
 // args
-Text('msg').tr(args: ['Easy localization', 'Dart']),
+Text('msg').tr(args: ['Simple localization', 'Dart']),
 
 // namedArgs
 Text('msg_named').tr(namedArgs: {'lang': 'Dart'}),
 
 // args and namedArgs
-Text('msg_mixed').tr(args: ['Easy localization'], namedArgs: {'lang': 'Dart'}),
+Text('msg_mixed').tr(args: ['Simple localization'], namedArgs: {'lang': 'Dart'}),
 
 // gender
 Text('gender').tr(gender: _gender ? "female" : "male"),
@@ -320,12 +320,12 @@ var money = plural('money_named_args', 10.23, namedArgs: {'name': 'Jane'}, name:
 In some languages, pluralization is simple and only involves using zero, one, two, and other forms, without needing to handle the `few` or `many` categories.  
 By default, `simple_localization` ignores the `few` and `many` plural forms and uses just the zero, one, two, and other forms.
 
-If you want to enable the handling of the `few` and `many` plural categories for specific languages, you can configure the `ignorePluralRules` flag to `false` in the `EasyLocalization` initialization.
+If you want to enable the handling of the `few` and `many` plural categories for specific languages, you can configure the `ignorePluralRules` flag to `false` in the `SimpleLocalization` initialization.
 
 Here’s how to configure it:
 
 ```dart
-EasyLocalization(
+SimpleLocalization(
   ignorePluralRules: false, // Set this line to false to enable 'few' and 'many' plural categories
   supportedLocales: [Locale('en', 'US'), Locale('de', 'DE')],
   path: 'assets/translations',
@@ -419,7 +419,7 @@ To link an external file, set the key’s value to a path prefixed with `:/`, re
 }
 ```
 
-At runtime, Easy Localization will load:
+At runtime, Simple Localization will load:
 ```
 assets
 └── translations
@@ -473,9 +473,9 @@ RaisedButton(
 )
 ```
 
-### 🔥 Get Easy localization widget properties
+### 🔥 Get Simple localization widget properties
 
-At any time, you can take the main [properties](#-easy-localization-widget-properties) of the Easy localization widget using [BuildContext].
+At any time, you can take the main [properties](#-easy-localization-widget-properties) of the Simple localization widget using [BuildContext].
 
 Are supported: supportedLocales, fallbackLocale, localizationDelegates.
 
@@ -515,7 +515,7 @@ Steps:
   import 'generated/codegen_loader.g.dart';
   ...
   void main(){
-    runApp(EasyLocalization(
+    runApp(SimpleLocalization(
       child: MyApp(),
       supportedLocales: [Locale('en', 'US'), Locale('ar', 'DZ')],
       path: 'resources/langs',
@@ -533,7 +533,7 @@ If you want to add localization support from other modules and packages you can 
 
 ```dart
   void main(){
-    runApp(EasyLocalization(
+    runApp(SimpleLocalization(
       child: MyApp(),
       supportedLocales: [Locale('en', 'US'), Locale('ar', 'DZ')],
       path: 'resources/langs',
@@ -585,24 +585,24 @@ If you are not using the default translations folder path (assets/translations) 
 
 ## 🖨️ Logger
 
-[Easy Localization] logger based on [Easy Logger]
+[Simple Localization] logger based on [Simple Logger]
 
 You can customize logger for you project
 
 ### Show only lost keys message
 
-Lost translations keys logged like warning messages. Change [Easy Logger] level for display only errors and warnings.
+Lost translations keys logged like warning messages. Change [Simple Logger] level for display only errors and warnings.
 
 ```dart
-EasyLocalization.logger.enableLevels = [LevelMessages.error, LevelMessages.warning];
+SimpleLocalization.logger.enableLevels = [LevelMessages.error, LevelMessages.warning];
 ```
 
 ### Logger off
 
-For disable logger, change Build Modes in [Easy Logger] to empty List;
+For disable logger, change Build Modes in [Simple Logger] to empty List;
 
 ```dart
-EasyLocalization.logger.enableBuildModes = [];
+SimpleLocalization.logger.enableBuildModes = [];
 ```
 
 ### Catching logger messages
@@ -610,7 +610,7 @@ EasyLocalization.logger.enableBuildModes = [];
 For catching logger messages you need override default printer function.
 
 ```dart
-EasyLogPrinter customLogPrinter = (
+SimpleLogPrinter customLogPrinter = (
   Object object, {
   String name,
   StackTrace stackTrace,
@@ -621,10 +621,10 @@ EasyLogPrinter customLogPrinter = (
 };
 
 /// override printer to custom
-EasyLocalization.logger.printer = customLogPrinter;
+SimpleLocalization.logger.printer = customLogPrinter;
 ```
 
-Read more about [Easy Logger](https://github.com/omeritzics/simple_localization/blob/master/packages/easy_logger/README.md)
+Read more about [Simple Logger](https://github.com/omeritzics/simple_localization/blob/master/packages/easy_logger/README.md)
 
 ## ➕ Extensions helpers
 
