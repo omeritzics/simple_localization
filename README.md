@@ -17,7 +17,6 @@ Easy and Fast internationalization for your Flutter Apps
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/omeritzics/simple_localization?style=flat-square)
 ![GitHub license](https://img.shields.io/github/license/omeritzics/simple_localization?style=flat-square)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
-[![StandWithPalestine](https://raw.githubusercontent.com/TheBSD/StandWithPalestine/main/badges/StandWithPalestine.svg)](https://github.com/TheBSD/StandWithPalestine/blob/main/docs/README.md)
 
 ## Why simple_localization?
 
