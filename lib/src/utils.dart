@@ -1,4 +1,4 @@
-part of 'easy_localization_app.dart';
+part of 'simple_localization_app.dart';
 
 /// Convert string locale [localeString] to [Locale]
 @Deprecated('Deprecated on Easy Localization 3.0')

@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:ui';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:easy_localization/src/file_loaders/file_loader.dart';
-import 'package:easy_localization/src/file_loaders/io_file_loader.dart';
+import 'package:simple_localization/simple_localization.dart';
+import 'package:simple_localization/src/file_loaders/file_loader.dart';
+import 'package:simple_localization/src/file_loaders/io_file_loader.dart';
 
 /// abstract class used to building your Custom AssetLoader
 /// Example:

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:easy_localization/src/file_loaders/file_loader.dart';
+import 'package:simple_localization/src/file_loaders/file_loader.dart';
 
 /// Resolves linked translation files by loading referenced files and merging them
 /// into the base JSON structure. Handles the ':/filename.json' syntax used in linked files.

@@ -1,10 +1,10 @@
-// DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
+// DO NOT EDIT. This is code generated via package:simple_localization/generate.dart
 
 // ignore_for_file: prefer_single_quotes
 
 import 'dart:ui';
 
-import 'package:easy_localization/easy_localization.dart'
+import 'package:simple_localization/simple_localization.dart'
     show AssetLoader, JsonLinkedFileResolver, RootBundleFileLoader;
 
 class CodegenLoader extends AssetLoader {

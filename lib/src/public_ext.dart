@@ -1,9 +1,9 @@
-import 'package:easy_localization/src/exceptions.dart';
-import 'package:easy_localization/src/localization.dart';
+import 'package:simple_localization/src/exceptions.dart';
+import 'package:simple_localization/src/localization.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 
-import 'easy_localization_app.dart';
+import 'simple_localization_app.dart';
 import 'public.dart' as ez;
 
 /// Text widget extension method for access to [tr()] and [plural()]

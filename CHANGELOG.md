@@ -54,8 +54,8 @@
 - **BREAKING**: Added `EasyLocalization.ensureInitialized()`, Needs to be called
 - **BREAKING**: Added support null safety
 - **BREAKING**: removed context parameter from `plural()` and `tr()`
-- Added Formatting linked translations [more](https://github.com/aissat/easy_localization#linked-translations)
-- Updated `plural()` function, with arguments [more](https://github.com/aissat/easy_localization#linked-translations)
+- Added Formatting linked translations [more](https://github.com/aissat/simple_localization#linked-translations)
+- Updated `plural()` function, with arguments [more](https://github.com/aissat/simple_localization#linked-translations)
   ```dart
     var money = plural('money_args', 10.23, args: ['John', '10.23'])  // output: John has 10.23 dollars
   ```
@@ -113,7 +113,7 @@ context.locale = locale;
     ]
   ```
 
-- Added support Custom assets loaders [Easy Localization Loader](https://github.com/aissat/easy_localization_loader).
+- Added support Custom assets loaders [Easy Localization Loader](https://github.com/aissat/simple_localization_loader).
   - Added support CSV files.
 
     ```dart
@@ -148,7 +148,7 @@ context.locale = locale;
 - Added Code generation of localization files.
 
   ```cmd
-  $ flutter pub run easy_localization:generate -h
+  $ flutter pub run simple_localization:generate -h
   -s, --source-dir     Source folder contains all string json files
                       (defaults to "resources/langs")
   -O, --output-dir     Output folder stores generated file
@@ -168,7 +168,7 @@ context.locale = locale;
     ```
 
     ```cmd
-    flutter pub run easy_localization:generate  -f keys -o locale_keys.g.dart
+    flutter pub run simple_localization:generate  -f keys -o locale_keys.g.dart
     ```
 
     ```dart
@@ -184,7 +184,7 @@ context.locale = locale;
   - generate the json Loader in a dart class
   
     ```cmd
-    flutter pub run easy_localization:generate
+    flutter pub run simple_localization:generate
     ```
 
 - fixed many issues.
@@ -222,10 +222,10 @@ this version came with many updates, here are the main ones:
 - optimized and clean code more stability
 - fixed many issues
 - added Unite test
-- Customization AssetLoader localizations `assetLoader` for more details see [custom assetLoader](https://github.com/aissat/easy_localization/blob/dev/example/lib/custom_asset_loader.dart)
+- Customization AssetLoader localizations `assetLoader` for more details see [custom assetLoader](https://github.com/aissat/simple_localization/blob/dev/example/lib/custom_asset_loader.dart)
 - added `fallbackLocale` as optional
 - Hiding `EasyLocalizationProvider`
-- refactor and update approach localization for more details see [example:](https://github.com/aissat/easy_localization/tree/master/example)
+- refactor and update approach localization for more details see [example:](https://github.com/aissat/simple_localization/tree/master/example)
 
   ``` dart
   // Now V2.0.0

@@ -1,14 +1,14 @@
 import 'dart:developer';
 
-import 'package:easy_localization/easy_localization.dart';
-import 'package:easy_localization/src/easy_localization_controller.dart';
-import 'package:easy_localization/src/localization.dart';
+import 'package:simple_localization/simple_localization.dart';
+import 'package:simple_localization/src/simple_localization_controller.dart';
+import 'package:simple_localization/src/localization.dart';
 import 'package:easy_logger/easy_logger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'easy_localization_utils_test.dart';
+import 'simple_localization_utils_test.dart';
 import 'utils/test_asset_loaders.dart';
 
 void main() {

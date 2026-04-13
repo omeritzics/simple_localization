@@ -67,7 +67,7 @@
 
 ```
 
-### [example/lib/main.dart](https://github.com/aissat/easy_localization/blob/master/example/lib/main.dart)
+### [example/lib/main.dart](https://github.com/aissat/simple_localization/blob/master/example/lib/main.dart)
 
 ```dart
 import 'dart:developer';
@@ -76,7 +76,7 @@ import 'package:example/lang_view.dart';
 import 'package:example/my_flutter_app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:simple_localization/simple_localization.dart';
 
 void main() async{
   
@@ -92,7 +92,7 @@ void main() async{
     // useOnlyLangCode: true,
 
     // optional assetLoader default used is RootBundleAssetLoader which uses flutter's assetloader
-    // install easy_localization_loader for enable custom loaders
+    // install simple_localization_loader for enable custom loaders
     // assetLoader: RootBundleAssetLoader()
     // assetLoader: HttpAssetLoader()
     // assetLoader: FileAssetLoader()
@@ -245,13 +245,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
 ```
 
-### [example/lib/lang_view.dart](https://github.com/aissat/easy_localization/blob/master/example/lib/lang_view.dart)
+### [example/lib/lang_view.dart](https://github.com/aissat/simple_localization/blob/master/example/lib/lang_view.dart)
 
 ```dart
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:simple_localization/simple_localization.dart';
 
 class LanguageView extends StatelessWidget {
   @override

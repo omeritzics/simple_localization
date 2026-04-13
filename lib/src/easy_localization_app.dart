@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:easy_localization/easy_localization.dart';
-import 'package:easy_localization/src/easy_localization_controller.dart';
+import 'package:simple_localization/simple_localization.dart';
+import 'package:simple_localization/src/simple_localization_controller.dart';
 import 'package:easy_logger/easy_logger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -91,13 +91,13 @@ class EasyLocalization extends StatefulWidget {
   final String path;
 
   /// Class loader for localization files.
-  /// You can use custom loaders from [Easy Localization Loader](https://github.com/aissat/easy_localization_loader) or create your own class.
+  /// You can use custom loaders from [Easy Localization Loader](https://github.com/aissat/simple_localization_loader) or create your own class.
   /// @Default value `const RootBundleAssetLoader()`
   // ignore: prefer_typing_uninitialized_variables
   final AssetLoader assetLoader;
 
   /// Class loader for localization files that belong to other packages.
-  /// You can use custom loaders from [Easy Localization Loader](https://github.com/aissat/easy_localization_loader) or create your own class.
+  /// You can use custom loaders from [Easy Localization Loader](https://github.com/aissat/simple_localization_loader) or create your own class.
   /// Example:
   /// ```dart
   //   runApp(

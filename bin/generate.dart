@@ -173,7 +173,7 @@ void generateFile(List<FileSystemEntity> files, Directory outputPath,
 Future _writeKeys(StringBuffer classBuilder, List<FileSystemEntity> files,
     bool? skipUnnecessaryKeys) async {
   var file = '''
-// DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
+// DO NOT EDIT. This is code generated via package:simple_localization/generate.dart
 
 // ignore_for_file: constant_identifier_names
 
@@ -234,13 +234,13 @@ String _resolve(Map<String, dynamic> translations, bool? skipUnnecessaryKeys,
 Future _writeJson(
     StringBuffer classBuilder, List<FileSystemEntity> files) async {
   var gFile = '''
-// DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
+// DO NOT EDIT. This is code generated via package:simple_localization/generate.dart
 
 // ignore_for_file: prefer_single_quotes, avoid_renaming_method_parameters, constant_identifier_names
 
 import 'dart:ui';
 
-import 'package:easy_localization/easy_localization.dart' show AssetLoader;
+import 'package:simple_localization/simple_localization.dart' show AssetLoader;
 
 class CodegenLoader extends AssetLoader{
   const CodegenLoader();

@@ -23,14 +23,14 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  easy_localization:
+  simple_localization:
     path: ../
   font_awesome_flutter: 9.0.0-nullsafety
 
   #custom loaders
-#fixme(DartAndrik): Commented due to [easy_localization_loader] package dependencies issue, uncomment after resolving.
-#  easy_localization_loader:
-#    git: https://github.com/aissat/easy_localization_loader.git
+#fixme(DartAndrik): Commented due to [simple_localization_loader] package dependencies issue, uncomment after resolving.
+#  simple_localization_loader:
+#    git: https://github.com/aissat/simple_localization_loader.git
 
 dev_dependencies:
   flutter_test:
