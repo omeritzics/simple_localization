@@ -125,26 +125,26 @@ extension StringTranslateExtension on String {
 /// print(context.supportedLocales); // output: [en_US, ar_DZ, de_DE, ru_RU]
 /// print(context.fallbackLocale);   // output: en_US
 /// ```
-extension BuildContextEasyLocalizationExtension on BuildContext {
+extension BuildContextSimpleLocalizationExtension on BuildContext {
   /// Get current locale
-  Locale get locale => EasyLocalization.of(this)!.locale;
+  Locale get locale => SimpleLocalization.of(this)!.locale;
 
   /// Change app locale
   Future<void> setLocale(Locale val) async =>
-      EasyLocalization.of(this)!.setLocale(val);
+      SimpleLocalization.of(this)!.setLocale(val);
 
   /// Old Change app locale
   @Deprecated(
-      'This is the func used in the old version of EasyLocalization. The modern func is `setLocale(val)` . '
+      'This is the func used in the old version of SimpleLocalization. The modern func is `setLocale(val)` . '
       'This feature was deprecated after v3.0.0')
-  set locale(Locale val) => EasyLocalization.of(this)!.setLocale(val);
+  set locale(Locale val) => SimpleLocalization.of(this)!.setLocale(val);
 
   /// Get List of supported locales.
   List<Locale> get supportedLocales =>
-      EasyLocalization.of(this)!.supportedLocales;
+      SimpleLocalization.of(this)!.supportedLocales;
 
   /// Get fallback locale
-  Locale? get fallbackLocale => EasyLocalization.of(this)!.fallbackLocale;
+  Locale? get fallbackLocale => SimpleLocalization.of(this)!.fallbackLocale;
 
   /// {@macro flutter.widgets.widgetsApp.localizationsDelegates}
   /// return
@@ -157,18 +157,18 @@ extension BuildContextEasyLocalizationExtension on BuildContext {
   ///   ],
   /// ```
   List<LocalizationsDelegate> get localizationDelegates =>
-      EasyLocalization.of(this)!.delegates;
+      SimpleLocalization.of(this)!.delegates;
 
   /// Clears a saved locale from device storage
   Future<void> deleteSaveLocale() =>
-      EasyLocalization.of(this)!.deleteSaveLocale();
+      SimpleLocalization.of(this)!.deleteSaveLocale();
 
   /// Getting device locale from platform
-  Locale get deviceLocale => EasyLocalization.of(this)!.deviceLocale;
-  Locale? get savedLocale => EasyLocalization.of(this)!.savedLocale;
+  Locale get deviceLocale => SimpleLocalization.of(this)!.deviceLocale;
+  Locale? get savedLocale => SimpleLocalization.of(this)!.savedLocale;
 
   /// Reset locale to platform locale
-  Future<void> resetLocale() => EasyLocalization.of(this)!.resetLocale();
+  Future<void> resetLocale() => SimpleLocalization.of(this)!.resetLocale();
 
   /// An extension method for translating your language keys.
   /// Subscribes the widget on current [Localization] that provided from context.

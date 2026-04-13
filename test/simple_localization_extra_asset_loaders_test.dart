@@ -9,7 +9,7 @@ import 'utils/test_asset_loaders.dart';
 void main() {
   group('ExtraAssetLoaders', () {
     test('should work normal if no extraAssetLoaders is provided', () async {
-      final EasyLocalizationController controller = EasyLocalizationController(
+      final SimpleLocalizationController controller = SimpleLocalizationController(
         forceLocale: const Locale('en'),
         path: 'path/en.json',
         supportedLocales: const [Locale('en')],
@@ -30,7 +30,7 @@ void main() {
     });
 
     test('load assets from external loader and merge with asset loader', () async {
-      final EasyLocalizationController controller = EasyLocalizationController(
+      final SimpleLocalizationController controller = SimpleLocalizationController(
         forceLocale: const Locale('en'),
         path: 'path/en.json',
         supportedLocales: const [Locale('en')],
@@ -56,7 +56,7 @@ void main() {
     });
 
     test('load assets from external loader with nested translations and merge with asset loader', () async {
-      final EasyLocalizationController controller = EasyLocalizationController(
+      final SimpleLocalizationController controller = SimpleLocalizationController(
         forceLocale: const Locale('en'),
         path: 'path/en.json',
         supportedLocales: const [Locale('en')],
@@ -86,7 +86,7 @@ void main() {
     });
 
     test('load assets from external loader and merge duplicates with asset loader', () async {
-      final EasyLocalizationController controller = EasyLocalizationController(
+      final SimpleLocalizationController controller = SimpleLocalizationController(
         forceLocale: const Locale('en'),
         path: 'path/en.json',
         supportedLocales: const [Locale('en')],

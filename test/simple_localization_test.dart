@@ -13,7 +13,7 @@ import 'utils/test_asset_loaders.dart';
 
 void main() {
   group('localization', () {
-    var r1 = EasyLocalizationController(
+    var r1 = SimpleLocalizationController(
         forceLocale: const Locale('en'),
         path: 'path/en.json',
         supportedLocales: const [Locale('en')],
@@ -24,7 +24,7 @@ void main() {
           log(e.toString());
         },
         assetLoader: const JsonAssetLoader());
-    var r2 = EasyLocalizationController(
+    var r2 = SimpleLocalizationController(
         forceLocale: const Locale('en', 'us'),
         supportedLocales: const [Locale('en', 'us')],
         path: 'path/en-us.json',
@@ -36,7 +36,7 @@ void main() {
         saveLocale: false,
         assetLoader: const JsonAssetLoader());
     setUpAll(() async {
-      EasyLocalization.logger.enableLevels = <LevelMessages>[
+      SimpleLocalization.logger.enableLevels = <LevelMessages>[
         LevelMessages.error,
         LevelMessages.warning,
       ];
@@ -67,7 +67,7 @@ void main() {
     });
 
     test('merge fallbackLocale with locale without country code succeeds', () async {
-      await EasyLocalizationController(
+      await SimpleLocalizationController(
         forceLocale: const Locale('es', 'AR'),
         supportedLocales: const [Locale('en'), Locale('es'), Locale('es', 'AR')],
         path: 'path/en-us.json',
@@ -116,8 +116,8 @@ void main() {
       SharedPreferences.setMockInitialValues({
         'locale': 'en',
       });
-      await EasyLocalization.ensureInitialized();
-      final controller = EasyLocalizationController(
+      await SimpleLocalization.ensureInitialized();
+      final controller = SimpleLocalizationController(
         supportedLocales: const [Locale('en'), Locale('fb')],
         fallbackLocale: const Locale('fb'),
         path: 'path',
@@ -139,8 +139,8 @@ void main() {
       SharedPreferences.setMockInitialValues({
         'locale': 'de',
       });
-      await EasyLocalization.ensureInitialized();
-      final controller = EasyLocalizationController(
+      await SimpleLocalization.ensureInitialized();
+      final controller = SimpleLocalizationController(
         supportedLocales: const [Locale('en'), Locale('fb')],
         fallbackLocale: const Locale('fb'),
         path: 'path',
@@ -190,11 +190,11 @@ void main() {
         const zhHansCN = Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans', countryCode: 'CN');
 
         expect(
-          EasyLocalizationController.selectLocaleFrom([en, zh], zhHansCN),
+          SimpleLocalizationController.selectLocaleFrom([en, zh], zhHansCN),
           zh,
         );
         expect(
-          EasyLocalizationController.selectLocaleFrom([zhHant, zhHans], zhHansCN),
+          SimpleLocalizationController.selectLocaleFrom([zhHant, zhHans], zhHansCN),
           zhHans,
         );
       });
@@ -206,7 +206,7 @@ void main() {
         const supportedLocale2 = Locale('zh', 'CN');
 
         expect(
-          EasyLocalizationController.selectLocaleFrom(
+          SimpleLocalizationController.selectLocaleFrom(
             [supportedLocale1, supportedLocale2],
             userDeviceLocale,
             fallbackLocale: supportedLocale2,
@@ -222,7 +222,7 @@ void main() {
         const supportedLocale2 = userDeviceLocale;
 
         expect(
-          EasyLocalizationController.selectLocaleFrom(
+          SimpleLocalizationController.selectLocaleFrom(
             [supportedLocale1, supportedLocale2],
             userDeviceLocale,
             fallbackLocale: supportedLocale2,
@@ -233,7 +233,7 @@ void main() {
     });
 
     group('tr', () {
-      var r = EasyLocalizationController(
+      var r = SimpleLocalizationController(
           forceLocale: const Locale('en'),
           supportedLocales: const [Locale('en'), Locale('fb')],
           fallbackLocale: const Locale('fb'),
@@ -402,7 +402,7 @@ void main() {
     });
 
     group('tr useFallbackTranslationsForEmptyResources', () {
-      var r = EasyLocalizationController(
+      var r = SimpleLocalizationController(
           forceLocale: const Locale('en'),
           supportedLocales: const [Locale('en'), Locale('fb')],
           fallbackLocale: const Locale('fb'),
@@ -448,7 +448,7 @@ void main() {
     });
 
     group('plural', () {
-      var r = EasyLocalizationController(
+      var r = SimpleLocalizationController(
           forceLocale: const Locale('en'),
           supportedLocales: const [Locale('en'), Locale('fb')],
           fallbackLocale: const Locale('fb'),
@@ -558,7 +558,7 @@ void main() {
     });
 
     group('plural useFallbackTranslationsForEmptyResources', () {
-      var r = EasyLocalizationController(
+      var r = SimpleLocalizationController(
           forceLocale: const Locale('en'),
           supportedLocales: const [Locale('en'), Locale('fb')],
           fallbackLocale: const Locale('fb'),

@@ -10,11 +10,11 @@ import 'localization.dart';
 
 part 'utils.dart';
 
-///  EasyLocalization
+///  SimpleLocalization
 ///  example:
 ///  ```
 ///  void main(){
-///    runApp(EasyLocalization(
+///    runApp(SimpleLocalization(
 ///      child: MyApp(),
 ///      supportedLocales: [Locale('en', 'US'), Locale('ar', 'DZ')],
 ///      path: 'resources/langs/langs.csv',
@@ -22,7 +22,7 @@ part 'utils.dart';
 ///    ));
 ///  }
 ///  ```
-class EasyLocalization extends StatefulWidget {
+class SimpleLocalization extends StatefulWidget {
   /// Place for your main page widget.
   final Widget child;
 
@@ -91,17 +91,17 @@ class EasyLocalization extends StatefulWidget {
   final String path;
 
   /// Class loader for localization files.
-  /// You can use custom loaders from [Easy Localization Loader](https://github.com/aissat/simple_localization_loader) or create your own class.
+  /// You can use custom loaders from [Simple Localization Loader](https://github.com/aissat/simple_localization_loader) or create your own class.
   /// @Default value `const RootBundleAssetLoader()`
   // ignore: prefer_typing_uninitialized_variables
   final AssetLoader assetLoader;
 
   /// Class loader for localization files that belong to other packages.
-  /// You can use custom loaders from [Easy Localization Loader](https://github.com/aissat/simple_localization_loader) or create your own class.
+  /// You can use custom loaders from [Simple Localization Loader](https://github.com/aissat/simple_localization_loader) or create your own class.
   /// Example:
   /// ```dart
   //   runApp(
-  //   EasyLocalization(
+  //   SimpleLocalization(
   //     supportedLocales: const <Locale>[
   //       Locale('en'),
   //     ],
@@ -126,7 +126,7 @@ class EasyLocalization extends StatefulWidget {
   /// @Default value `errorWidget = ErrorWidget()`
   final Widget Function(FlutterError? message)? errorWidget;
 
-  EasyLocalization({
+  SimpleLocalization({
     Key? key,
     required this.child,
     required this.supportedLocales,
@@ -147,34 +147,34 @@ class EasyLocalization extends StatefulWidget {
   })  : assert(supportedLocales.isNotEmpty),
         assert(path.isNotEmpty),
         super(key: key) {
-    EasyLocalization.logger.debug('Start');
+    SimpleLocalization.logger.debug('Start');
   }
 
   @override
   // ignore: library_private_types_in_public_api
-  _EasyLocalizationState createState() => _EasyLocalizationState();
+  _SimpleLocalizationState createState() => _SimpleLocalizationState();
 
   // ignore: library_private_types_in_public_api
-  static _EasyLocalizationProvider? of(BuildContext context) => _EasyLocalizationProvider.of(context);
+  static _SimpleLocalizationProvider? of(BuildContext context) => _SimpleLocalizationProvider.of(context);
 
   /// ensureInitialized needs to be called in main
   /// so that savedLocale is loaded and used from the
   /// start.
-  static Future<void> ensureInitialized() async => await EasyLocalizationController.initEasyLocation();
+  static Future<void> ensureInitialized() async => await SimpleLocalizationController.initEasyLocation();
 
   /// Customizable logger
-  static EasyLogger logger = EasyLogger(name: '🌎 Easy Localization');
+  static EasyLogger logger = EasyLogger(name: '🌎 Simple Localization');
 }
 
-class _EasyLocalizationState extends State<EasyLocalization> {
-  _EasyLocalizationDelegate? delegate;
-  EasyLocalizationController? localizationController;
+class _SimpleLocalizationState extends State<SimpleLocalization> {
+  _SimpleLocalizationDelegate? delegate;
+  SimpleLocalizationController? localizationController;
   FlutterError? translationsLoadError;
 
   @override
   void initState() {
-    EasyLocalization.logger.debug('Init state');
-    localizationController = EasyLocalizationController(
+    SimpleLocalization.logger.debug('Init state');
+    localizationController = SimpleLocalizationController(
       saveLocale: widget.saveLocale,
       fallbackLocale: widget.fallbackLocale,
       supportedLocales: widget.supportedLocales,
@@ -205,16 +205,16 @@ class _EasyLocalizationState extends State<EasyLocalization> {
 
   @override
   Widget build(BuildContext context) {
-    EasyLocalization.logger.debug('Build');
+    SimpleLocalization.logger.debug('Build');
     if (translationsLoadError != null) {
       return widget.errorWidget != null
           ? widget.errorWidget!(translationsLoadError)
           : ErrorWidget(translationsLoadError!);
     }
-    return _EasyLocalizationProvider(
+    return _SimpleLocalizationProvider(
       widget,
       localizationController!,
-      delegate: _EasyLocalizationDelegate(
+      delegate: _SimpleLocalizationDelegate(
         localizationController: localizationController,
         supportedLocales: widget.supportedLocales,
         useFallbackTranslationsForEmptyResources: widget.useFallbackTranslationsForEmptyResources,
@@ -224,11 +224,11 @@ class _EasyLocalizationState extends State<EasyLocalization> {
   }
 }
 
-class _EasyLocalizationProvider extends InheritedWidget {
-  final EasyLocalization parent;
-  final EasyLocalizationController _localeState;
+class _SimpleLocalizationProvider extends InheritedWidget {
+  final SimpleLocalization parent;
+  final SimpleLocalizationController _localeState;
   final Locale? currentLocale;
-  final _EasyLocalizationDelegate delegate;
+  final _SimpleLocalizationDelegate delegate;
   final bool _translationsLoaded;
 
   /// {@macro flutter.widgets.widgetsApp.localizationsDelegates}
@@ -251,13 +251,13 @@ class _EasyLocalizationProvider extends InheritedWidget {
   /// Get List of supported locales
   List<Locale> get supportedLocales => parent.supportedLocales;
 
-  // _EasyLocalizationDelegate get delegate => parent.delegate;
+  // _SimpleLocalizationDelegate get delegate => parent.delegate;
 
-  _EasyLocalizationProvider(this.parent, this._localeState, {Key? key, required this.delegate})
+  _SimpleLocalizationProvider(this.parent, this._localeState, {Key? key, required this.delegate})
       : currentLocale = _localeState.locale,
         _translationsLoaded = _localeState.translations != null,
         super(key: key, child: parent.child) {
-    EasyLocalization.logger.debug('Init provider');
+    SimpleLocalization.logger.debug('Init provider');
   }
 
   /// Get current locale
@@ -290,30 +290,30 @@ class _EasyLocalizationProvider extends InheritedWidget {
   Future<void> resetLocale() => _localeState.resetLocale();
 
   @override
-  bool updateShouldNotify(_EasyLocalizationProvider oldWidget) {
+  bool updateShouldNotify(_SimpleLocalizationProvider oldWidget) {
     return oldWidget.currentLocale != locale || oldWidget._translationsLoaded != _translationsLoaded;
   }
 
-  static _EasyLocalizationProvider? of(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType<_EasyLocalizationProvider>();
+  static _SimpleLocalizationProvider? of(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<_SimpleLocalizationProvider>();
 }
 
-class _EasyLocalizationDelegate extends LocalizationsDelegate<Localization> {
+class _SimpleLocalizationDelegate extends LocalizationsDelegate<Localization> {
   final List<Locale>? supportedLocales;
-  final EasyLocalizationController? localizationController;
+  final SimpleLocalizationController? localizationController;
   final bool useFallbackTranslationsForEmptyResources;
   final bool ignorePluralRules;
 
   ///  * use only the lang code to generate i18n file path like en.json or ar.json
   // final bool useOnlyLangCode;
 
-  _EasyLocalizationDelegate({
+  _SimpleLocalizationDelegate({
     required this.useFallbackTranslationsForEmptyResources,
     this.ignorePluralRules = true,
     this.localizationController,
     this.supportedLocales,
   }) {
-    EasyLocalization.logger.debug('Init Localization Delegate');
+    SimpleLocalization.logger.debug('Init Localization Delegate');
   }
 
   @override
@@ -321,7 +321,7 @@ class _EasyLocalizationDelegate extends LocalizationsDelegate<Localization> {
 
   @override
   Future<Localization> load(Locale value) async {
-    EasyLocalization.logger.debug('Load Localization Delegate');
+    SimpleLocalization.logger.debug('Load Localization Delegate');
     if (localizationController!.translations == null) {
       await localizationController!.loadTranslations();
     }

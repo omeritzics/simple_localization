@@ -53,7 +53,7 @@ class RootBundleAssetLoader extends AssetLoader {
   @override
   Future<Map<String, dynamic>?> load(String path, Locale locale) async {
     var localePath = getLocalePath(path, locale);
-    EasyLocalization.logger.debug('Load asset from $path');
+    SimpleLocalization.logger.debug('Load asset from $path');
 
     Map<String, dynamic> baseJson = json.decode(await fileLoader.loadString(localePath));
     return await linkedFileResolver.resolveLinkedFiles(

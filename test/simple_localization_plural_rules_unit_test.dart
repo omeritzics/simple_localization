@@ -9,7 +9,7 @@ import 'utils/test_asset_loaders.dart';
 
 void main() {
   // Setup
-  var r = EasyLocalizationController(
+  var r = SimpleLocalizationController(
       forceLocale: const Locale('fb'),
       supportedLocales: [const Locale('en'), const Locale('ar'), const Locale('ru'), const Locale('fb')],
       fallbackLocale: const Locale('fb'),

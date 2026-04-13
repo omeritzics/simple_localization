@@ -5,7 +5,7 @@ import 'logger_printer.dart';
 
 /// Easy Logger callable class
 class EasyLogger {
-  /// Customized logger, part of [EasyLocalization](https://github.com/aissat/simple_localization) ecosystem.
+  /// Customized logger, part of [SimpleLocalization](https://github.com/aissat/simple_localization) ecosystem.
   /// Callable class, [more info](https://dart.dev/guides/language/language-tour#callable-classes)
   EasyLogger({
     this.name = '',

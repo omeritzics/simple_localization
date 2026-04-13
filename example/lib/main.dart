@@ -8,9 +8,9 @@ import 'lang_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
+  await SimpleLocalization.ensureInitialized();
 
-  runApp(EasyLocalization(
+  runApp(SimpleLocalization(
     supportedLocales: [
       Locale('en', 'US'),
       Locale('ar', 'DZ'),

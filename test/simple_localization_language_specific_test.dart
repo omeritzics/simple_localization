@@ -9,7 +9,7 @@ import 'utils/test_asset_loaders.dart';
 
 void main() {
   group('language-specific-plurals', () {
-    var r = EasyLocalizationController(
+    var r = SimpleLocalizationController(
         forceLocale: const Locale('fb'),
         supportedLocales: [
           const Locale('en'),

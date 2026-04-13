@@ -7,24 +7,24 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'simple_localization_context_test.dart';
 
 Future<void> main() async {
-  EasyLocalization.logger.enableLevels = <LevelMessages>[
+  SimpleLocalization.logger.enableLevels = <LevelMessages>[
     LevelMessages.error,
     LevelMessages.warning,
   ];
 
   SharedPreferences.setMockInitialValues({});
-  EasyLocalization.logger.enableLevels = <LevelMessages>[
+  SimpleLocalization.logger.enableLevels = <LevelMessages>[
     LevelMessages.error,
     LevelMessages.warning,
   ];
 
-  await EasyLocalization.ensureInitialized();
+  await SimpleLocalization.ensureInitialized();
 
   testWidgets(
     'Ensure that loading the translations will update its depending widgets',
     (WidgetTester tester) async {
       await tester.runAsync(() async {
-        await tester.pumpWidget(EasyLocalization(
+        await tester.pumpWidget(SimpleLocalization(
           supportedLocales: const [Locale('en'), Locale('de')],
           path: '../../i18n',
           fallbackLocale: const Locale('en'),
@@ -54,7 +54,7 @@ class _I18nObserverState extends State<I18nObserver> {
   @override
   void didChangeDependencies() {
     // use the dependOnInheritedWidgetOfExactType pattern
-    EasyLocalization.of(context);
+    SimpleLocalization.of(context);
 
     super.didChangeDependencies();
 

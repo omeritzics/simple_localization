@@ -90,7 +90,7 @@ class Localization {
           translated = _modifiers[formatterName]!(translated);
         } else {
           if (logging) {
-            EasyLocalization.logger.warning(
+            SimpleLocalization.logger.warning(
                 'Undefined modifier $formatterName, available modifiers: ${_modifiers.keys.toString()}');
           }
         }
@@ -205,7 +205,7 @@ class Localization {
     if (resource == null ||
         (_useFallbackTranslationsForEmptyResources && resource.isEmpty)) {
       if (logging) {
-        EasyLocalization.logger.warning('Localization key [$key] not found');
+        SimpleLocalization.logger.warning('Localization key [$key] not found');
       }
       if (_fallbackTranslations == null || !fallback) {
         return key;
@@ -214,7 +214,7 @@ class Localization {
         if (resource == null ||
             (_useFallbackTranslationsForEmptyResources && resource.isEmpty)) {
           if (logging) {
-            EasyLocalization.logger
+            SimpleLocalization.logger
                 .warning('Fallback localization key [$key] not found');
           }
           return key;

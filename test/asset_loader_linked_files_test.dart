@@ -10,12 +10,12 @@ void main() async {
   // Initialize the test environment
   TestWidgetsFlutterBinding.ensureInitialized();
   SharedPreferences.setMockInitialValues({});
-  await EasyLocalization.ensureInitialized();
+  await SimpleLocalization.ensureInitialized();
 
   group('Asset Loader - Linked Translation Files', () {
     group('RootBundleAssetLoader with linked files', () {
       test('should load single linked file', () async {
-        final controller = EasyLocalizationController(
+        final controller = SimpleLocalizationController(
           forceLocale: const Locale('en', 'linked'),
           path: 'i18n',
           supportedLocales: const [Locale('en', 'linked')],
@@ -39,7 +39,7 @@ void main() async {
       });
 
       test('should load multiple linked files', () async {
-        final controller = EasyLocalizationController(
+        final controller = SimpleLocalizationController(
           forceLocale: const Locale('en', 'linked'),
           path: 'i18n',
           supportedLocales: const [Locale('en', 'linked')],
@@ -66,7 +66,7 @@ void main() async {
       });
 
       test('should load nested linked files', () async {
-        final controller = EasyLocalizationController(
+        final controller = SimpleLocalizationController(
           forceLocale: const Locale('en', 'linked'),
           path: 'i18n',
           supportedLocales: const [Locale('en', 'linked')],
@@ -89,7 +89,7 @@ void main() async {
       });
 
       test('should load deeply nested linked files', () async {
-        final controller = EasyLocalizationController(
+        final controller = SimpleLocalizationController(
           forceLocale: const Locale('en', 'linked'),
           path: 'i18n',
           supportedLocales: const [Locale('en', 'linked')],
@@ -112,7 +112,7 @@ void main() async {
       });
 
       test('should preserve original structure with linked files', () async {
-        final controller = EasyLocalizationController(
+        final controller = SimpleLocalizationController(
           forceLocale: const Locale('en', 'linked'),
           path: 'i18n',
           supportedLocales: const [Locale('en', 'linked')],
@@ -143,7 +143,7 @@ void main() async {
 
     group('Error handling for linked files', () {
       test('should throw error for cyclic linked files', () async {
-        final controller = EasyLocalizationController(
+        final controller = SimpleLocalizationController(
           forceLocale: const Locale('en', 'cyclic'),
           path: 'i18n',
           supportedLocales: const [Locale('en', 'cyclic')],
@@ -167,7 +167,7 @@ void main() async {
       });
 
       test('should throw error for missing linked file', () async {
-        final controller = EasyLocalizationController(
+        final controller = SimpleLocalizationController(
           forceLocale: const Locale('en', 'missing'),
           path: 'i18n',
           supportedLocales: const [Locale('en', 'missing')],
@@ -193,7 +193,7 @@ void main() async {
     group('Edge cases for linked files', () {
       test('should work with useOnlyLangCode setting', () async {
         // Test with a simple locale using useOnlyLangCode
-        final controller = EasyLocalizationController(
+        final controller = SimpleLocalizationController(
           forceLocale: const Locale('en'),
           path: 'i18n',
           supportedLocales: const [Locale('en')],
