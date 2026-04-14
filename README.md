@@ -273,7 +273,7 @@ Example:
     "other": "{} дней"
   },
   "money": {
-    "zero": "You not have money",
+    "zero": "You have no money",
     "one": "You have {} dollar",
     "many": "You have {} dollars",
     "other": "You have {} dollars"
@@ -648,28 +648,6 @@ Locale('en', 'US').toStringWithSeparator(separator: '|') // en|US
         <img src="https://gitpod.io/button/open-in-gitpod.svg" width=200 />
     </a>
 </p>
-
-
-## Screenshots
-
-| Arabic RTL                                                                                                                  | English LTR                                                                                                                   | Error widget                                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| ![Arabic RTL](https://raw.githubusercontent.com/omeritzics/simple_localization/master/screenshots/Screenshot_ar.png "Arabic RTL") | ![English LTR](https://raw.githubusercontent.com/omeritzics/simple_localization/master/screenshots/Screenshot_en.png "English LTR") | ![Error widget](https://raw.githubusercontent.com/omeritzics/simple_localization/master/screenshots/Screenshot_err.png "Error widget") |
-
-## Donations
-
-We need your support. Projects like this can not be successful without support from the community. If you find this project useful, and would like to support further development and ongoing maintenance, please consider donating.
-
-<p align="center">
-  <a href="https://opencollective.com/flutter_simple_localization/donate" target="_blank">
-    <img src="https://opencollective.com/flutter_simple_localization/donate/button@2x.png?color=blue" width=300 />
-  </a>
-</p>
-
-### Sponsors
-
-<img src="https://opencollective.com/flutter_simple_localization/tiers/backer.svg?avatarHeight=48"/>
-
 
 ### Contributors thanks
 
