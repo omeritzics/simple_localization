@@ -2,7 +2,7 @@
 <h1 align="center"> 
 Easy and Fast internationalization for your Flutter Apps
 </h1>
-
+ 
 [![Pub Version](https://img.shields.io/pub/v/easy_localization?style=flat-square&logo=dart)](https://pub.dev/packages/easy_localization)
 [![likes](https://badges.bar/easy_localization/likes)](https://pub.dev/packages/easy_localization/score)
 [![likes](https://badges.bar/easy_localization/popularity)](https://pub.dev/packages/easy_localization/score)
