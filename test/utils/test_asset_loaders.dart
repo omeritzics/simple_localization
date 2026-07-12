@@ -1,9 +1,9 @@
 import 'dart:ui';
 
 import 'package:simple_localization/simple_localization.dart'
-    show AssetLoader, JsonLinkedFileResolver, RootBundleFileLoader;
+    show FileBasedAssetLoader, JsonLinkedFileResolver, RootBundleFileLoader;
 
-class ImmutableJsonAssetLoader extends AssetLoader {
+class ImmutableJsonAssetLoader extends FileBasedAssetLoader {
   const ImmutableJsonAssetLoader()
       : super(
             linkedFileResolver: const JsonLinkedFileResolver(fileLoader: RootBundleFileLoader()),
@@ -17,7 +17,7 @@ class ImmutableJsonAssetLoader extends AssetLoader {
   }
 }
 
-class JsonAssetLoader extends AssetLoader {
+class JsonAssetLoader extends FileBasedAssetLoader {
   const JsonAssetLoader()
       : super(
             linkedFileResolver: const JsonLinkedFileResolver(fileLoader: RootBundleFileLoader()),
@@ -142,7 +142,7 @@ class JsonAssetLoader extends AssetLoader {
   }
 }
 
-class ExternalAssetLoader extends AssetLoader {
+class ExternalAssetLoader extends FileBasedAssetLoader {
   ExternalAssetLoader()
       : super(
             linkedFileResolver: const JsonLinkedFileResolver(fileLoader: RootBundleFileLoader()),
@@ -156,7 +156,7 @@ class ExternalAssetLoader extends AssetLoader {
       });
 }
 
-class NestedAssetLoader extends AssetLoader {
+class NestedAssetLoader extends FileBasedAssetLoader {
   NestedAssetLoader()
       : super(
             linkedFileResolver: const JsonLinkedFileResolver(fileLoader: RootBundleFileLoader()),

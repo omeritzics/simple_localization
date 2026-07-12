@@ -16,19 +16,22 @@ import 'package:simple_localization/src/file_loaders/io_file_loader.dart';
 ///}
 /// ```
 abstract class AssetLoader {
-  // Place inside class RootBundleAssetLoader
+  const AssetLoader();
+
+  Future<Map<String, dynamic>?> load(String path, Locale locale);
+}
+
+abstract class FileBasedAssetLoader extends AssetLoader {
   final FileLoader fileLoader;
   final LinkedFileResolver linkedFileResolver;
 
-  const AssetLoader({required this.linkedFileResolver, required this.fileLoader});
-
-  Future<Map<String, dynamic>?> load(String path, Locale locale);
+  const FileBasedAssetLoader({required this.linkedFileResolver, required this.fileLoader});
 }
 
 ///
 /// default used is RootBundleAssetLoader which uses flutter's assetloader
 ///
-class RootBundleAssetLoader extends AssetLoader {
+class RootBundleAssetLoader extends FileBasedAssetLoader {
   const RootBundleAssetLoader({required LinkedFileResolver linkedFileResolver, required FileLoader fileLoader})
       : super(linkedFileResolver: linkedFileResolver, fileLoader: fileLoader);
 

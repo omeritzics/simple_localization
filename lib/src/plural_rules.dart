@@ -504,6 +504,7 @@ final pluralRules = {
   'km': _default_rule,
   'kn': _hi_rule,
   'ko': _default_rule,
+  'ku': _en_rule,
   'ky': _es_rule,
   'ln': _ak_rule,
   'lo': _default_rule,
@@ -552,6 +553,7 @@ final pluralRules = {
   'zh_CN': _default_rule,
   'zh_HK': _default_rule,
   'zh_TW': _default_rule,
+  'zh_TW_Hans': _default_rule,
   'zu': _hi_rule,
   'default': _default_rule
 };
