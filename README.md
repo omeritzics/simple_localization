@@ -1,3 +1,5 @@
+<p align="center"><img src="https://raw.githubusercontent.com/omeritzics/simple_localization/develop/logo/logo.svg?sanitize=true" width="600"/></p>
+
 <h1 align="center"> 
 Simple and Fast internationalization for your Flutter Apps
 </h1>
